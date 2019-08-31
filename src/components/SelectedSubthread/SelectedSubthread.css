@@ -10,11 +10,12 @@
   }
 }
 
-.selected-subthread {
-  height: 100%;
-  padding: 2em 1em;
+.selected-thread--subthread {
   background-color: #fafafa;
   transform: translateX(1em);
-  border-left: 1px solid #f2f2f2;
   animation: slide-subthread-in 0.5s ease forwards;
+}
+
+.selected-thread--subthread .selected-thread__header__title {
+  font-weight: 400;
 }

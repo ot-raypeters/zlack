@@ -27,7 +27,7 @@
 
 .selected-thread__messages {
   overflow-y: auto;
-  max-height: 300px;
+  max-height: calc(100vh - 188px);
   flex: 1 1 100%;
 }
 

@@ -1,22 +1,27 @@
 import { createSelector } from 'reselect';
 
-const getThreads = ({ entities }) => entities.threads;
+const getThread = ({ entities, threads }) =>
+  entities.threads.byId[threads.selectedThreadId];
+
 const getMessages = ({ entities }) => entities.messages;
 
-const getSelectedThreadId = ({ threads }) => threads.selectedThreadId;
 export const getSelectedThread = createSelector(
-  [getSelectedThreadId, getThreads, getMessages],
-  (selectedThreadId, threads, messages) => ({
-    thread: threads.byId[selectedThreadId],
-    messages: messages.all.filter(message => message.threadId === selectedThreadId)
+  [getThread, getMessages],
+  (selectedThread, messages) => ({
+    thread: selectedThread,
+    messages: messages.all.filter((message) =>
+      (message.threadId === selectedThread.uid))
   })
 );
 
-const getSelectedSubthreadId = ({ threads }) => threads.selectedSubthreadId;
+const getSubthread = ({ entities, threads }) =>
+  entities.messages.byId[threads.selectedSubthreadId];
+
 export const getSelectedSubthread = createSelector(
-  [getSelectedSubthreadId, getThreads, getMessages],
-  (selectedSubthreadId, threads, messages) => ({
-    thread: threads.byId[selectedSubthreadId],
-    messages: messages.all.filter(message => message.threadId === selectedSubthreadId)
+  [getSubthread, getMessages],
+  (selectedSubthread, messages) => ({
+    subthread: selectedSubthread,
+    messages: messages.all.filter(({ threadId, uid }) =>
+      (uid === selectedSubthread.uid || threadId === selectedSubthread.uid))
   })
 );
