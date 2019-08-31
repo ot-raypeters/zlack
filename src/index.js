@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import { connect } from './actions/user';
 import App from './components/App/App';
 import store from './store';
+import './form-control.css';
 import './index.css';
 
 store.dispatch(connect());

@@ -1,0 +1,17 @@
+.user-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-login__form {
+  padding: 2em;
+  border-radius: 1em;
+}
+
+.user-login__form .label {
+}
+
+.user-login__form .input {
+  display: block;
+}

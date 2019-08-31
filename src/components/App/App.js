@@ -5,11 +5,11 @@ import UserLogin from '../UserLogin/UserLogin';
 
 class App extends React.Component {
   render() {
-    if (this.props.authenticated) {
-      return <ChatApp />;
+    if (!this.props.authenticated) {
+      return <UserLogin />
     }
 
-    return <UserLogin />
+    return <ChatApp />;
   }
 }
 
