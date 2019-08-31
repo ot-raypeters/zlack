@@ -27,7 +27,7 @@ class UserLogin extends React.Component {
         <div className="user-login__form">
           <label
             className="label noselect"
-            htmlFor="username-input">Please enter a username</label>
+            htmlFor="username-input">Enter your username</label>
 
           <input
             ref={this.inputRef}

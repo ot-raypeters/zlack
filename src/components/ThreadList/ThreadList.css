@@ -1,0 +1,46 @@
+@keyframes slide-thread-list-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-1em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.thread-list {
+  opacity: 0;
+  height: 100%;
+  list-style: none;
+  background-color: #eaeaea;
+  transform: translateX(-1em);
+  animation: slide-thread-list-in 0.5s ease forwards;
+}
+
+.thread-list__section {
+  opacity: 0.35;
+  padding: 0.5em;
+  font-weight: 300;
+  font-size: 0.75em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.thread-list__item {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 0.25em 1em;
+  transition: 0.25s all ease-in-out;
+}
+
+.thread-list__item:hover {
+  background-color: #f2f2f2;
+}
+
+/* @note double selector weight to override :hover */
+.thread-list__item--active.thread-list__item--active {
+  background-color: #fff;
+}

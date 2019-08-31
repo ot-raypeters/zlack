@@ -1,0 +1,35 @@
+.chat {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.25s ease-in-out;
+}
+
+.chat__thread-list {
+  width: 240px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  transition: all 0.25s ease-in-out;
+}
+
+.chat__thread-list .thread-list {
+  padding-top: 2em;
+}
+
+.chat__selected-thread {
+  flex: 1 0;
+  padding-left: 240px;
+  transition: all 0.25s ease-in-out;
+}
+
+.chat__selected-subthread {
+  width: 320px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  transition: all 0.25s ease-in-out;
+}

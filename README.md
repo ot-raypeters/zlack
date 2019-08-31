@@ -35,9 +35,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Simple chat app
 
-- [ ] User can login and view a list of channels
+- [x] User can login and view a list of channels
 - [ ] User can join a channel and see list of users in the channel
-- [ ] User can send a message to the channel
+- [x] User can send a message to the channel
 
 ### Fancy chat app
 

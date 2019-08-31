@@ -1,0 +1,36 @@
+.selected-thread {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  flex-direction: column;
+  border-left: 1px solid #e2e2e2;
+}
+
+.selected-thread__header {
+  top: 0;
+  z-index: 1;
+  height: 80px;
+  display: flex;
+  position: sticky;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.selected-thread__header__title {
+  padding: 0.75em 2em;
+}
+
+.selected-thread .message-list {
+  padding: 2em;
+}
+
+.selected-thread__messages {
+  overflow-y: auto;
+  max-height: 300px;
+  flex: 1 1 100%;
+}
+
+.selected-thread__create-message {
+  border-top: 1px solid #f2f2f2;
+}

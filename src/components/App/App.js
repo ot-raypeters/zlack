@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect }  from 'react-redux';
-import ChatApp from '../ChatApp/ChatApp';
 import UserLogin from '../UserLogin/UserLogin';
+import Chat from '../Chat/Chat';
 
 class App extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class App extends React.Component {
       return <UserLogin />
     }
 
-    return <ChatApp />;
+    return <Chat />;
   }
 }
 

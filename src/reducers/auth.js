@@ -1,4 +1,8 @@
-import { USER_CONNECTED, USER_LOGGED_IN, USER_LOGGED_OUT } from '../actions/user';
+import {
+  USER_CONNECTED,
+  USER_LOGGED_IN,
+  USER_LOGGED_OUT
+} from '../actions/user';
 
 const INITIAL_STATE = {
   connected: false,
