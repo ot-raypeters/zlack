@@ -7,7 +7,29 @@
   margin: 0;
   padding: 0;
   opacity: 0;
-  font-size: 20px;
+  font-size: 16px;
   list-style: none;
   animation: fade-message-list-in 0.5s ease forwards;
+}
+
+.message-list__item {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0.25em 1em;
+  margin-bottom: 0.25em;
+  transition: all 0.25s ease-in-out;
+}
+
+.message-list__item:hover {
+  background-color: #fafafa;
+}
+
+.message-list__author {
+  opacity: 0.25;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.message-list__item + .message-list__author {
+  margin-top: 1em;
 }

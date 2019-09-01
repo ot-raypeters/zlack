@@ -19,3 +19,16 @@
 .selected-thread--subthread .selected-thread__header__title {
   font-weight: 400;
 }
+
+.selected-thread--subthread .close-button {
+  float: right;
+  opacity: 0.35;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: all 0.25s ease-in-out;
+}
+
+.selected-thread--subthread .close-button:hover {
+  opacity: 1;
+  transition: all 0.25s ease-in-out;
+}

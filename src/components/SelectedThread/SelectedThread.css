@@ -9,7 +9,7 @@
 .selected-thread__header {
   top: 0;
   z-index: 1;
-  height: 80px;
+  height: 60px;
   display: flex;
   position: sticky;
   align-items: center;
@@ -18,7 +18,8 @@
 }
 
 .selected-thread__header__title {
-  padding: 0.75em 2em;
+  width: 100%;
+  padding: 0.75em 1em 0.75em 1.25em;
 }
 
 .selected-thread .message-list {
@@ -32,5 +33,6 @@
 }
 
 .selected-thread__create-message {
+  padding: 1em;
   border-top: 1px solid #f2f2f2;
 }

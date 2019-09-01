@@ -25,11 +25,7 @@
 }
 
 .chat__selected-subthread {
-  width: 320px;
-  top: 0;
-  right: 0;
-  bottom: 0;
   z-index: 1;
-  position: fixed;
+  flex: 0 0 320px;
   transition: all 0.25s ease-in-out;
 }

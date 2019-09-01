@@ -1,0 +1,85 @@
+.thread-participants {
+  list-style: none;
+  padding-bottom: 1em;
+}
+
+.thread-participants__item {
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 4px 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items:  center;
+  justify-content: space-between;
+}
+
+.thread-participants__title {
+  opacity: 0.25;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* activity indicator */
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.activity-indicator {
+  opacity: 0;
+  animation: fade-in 0.5s ease forwards;
+}
+
+@keyframes online-blink {
+  50% { opacity: 0.75; }
+}
+
+.green-dot {
+  width: 16px;
+  height: 16px;
+  opacity: 0.5;
+  display: flex;
+  border-radius: 8px;
+  background-color: #59e159;
+  animation: 3s online-blink infinite;
+}
+
+/* @note borrowed from https://codepen.io/fusco/pen/XbpaYv */
+
+@keyframes blink {
+  50% { opacity: 1; }
+}
+
+@keyframes bulge {
+  50% { transform: scale(1.1); }
+}
+
+.typing-indicator {
+  width: auto;
+  padding: 8px;
+  display: table;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50px;
+  will-change: transform;
+  animation: 2s bulge infinite ease-out;
+}
+
+.typing-indicator span {
+  float: left;
+  width: 8px;
+  height: 8px;
+  opacity: 0.25;
+  display: block;
+  margin-left: 2px;
+  border-radius: 8px;
+  background-color: #9E9EA1;
+}
+
+.typing-indicator span:nth-of-type(1) { animation: 1s blink infinite .33s; }
+.typing-indicator span:nth-of-type(2) { animation: 1s blink infinite .66s; }
+.typing-indicator span:nth-of-type(3) { animation: 1s blink infinite 1s; }

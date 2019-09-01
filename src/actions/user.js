@@ -2,15 +2,15 @@ export const USER_CONNECTED = 'USER_CONNECTED';
 export const USER_LOGGED_IN = 'USER_LOGGED_IN';
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
 
-export function connect() {
+export function connect(userId) {
   return (dispatch) => {
-    dispatch({ type: USER_CONNECTED });
+    dispatch({ type: USER_CONNECTED, userId });
   };
 }
 
-export function login(user) {
+export function login(username) {
   return (dispatch) => {
-    dispatch({ type: USER_LOGGED_IN, user });
+    dispatch({ type: USER_LOGGED_IN, username });
   };
 }
 

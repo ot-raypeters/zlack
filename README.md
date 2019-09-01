@@ -4,11 +4,15 @@ This application requires the [node](https://nodejs.org/en/) version `10.16 LTS`
 
 Newer node versions are untested but may still work.
 
+## Installation
+
+In the project directory, run `yarn` to install dependencies from npm.
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -16,12 +20,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `yarn build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -36,13 +40,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### Simple chat app
 
 - [x] User can login and view a list of channels
-- [ ] User can join a channel and see list of users in the channel
+- [x] User can join a channel and see list of users in the channel
 - [x] User can send a message to the channel
 
 ### Fancy chat app
 
-- [ ] User can reply to a message
-- [ ] User can see when other users are typing
+- [x] User can reply to a message
+- [x] User can see when other users are typing
 - [ ] Developers should be able to create bot integrations quickly and easily
 - [ ] Users should be serenaded by quotes from the Zen of Python
 
@@ -54,6 +58,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Future
 
+- [ ] Add e2e smoke tests with cypress for "critical" user flows
 - [ ] User should be able to add and remove channels
 - [ ] User should be able to react to messages
 - [ ] Build and deploy with electron
@@ -116,6 +121,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [Zen of Python](https://www.python.org/dev/peps/pep-0020/#id3)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [@tensorflow-models/toxicity](https://github.com/tensorflow/tfjs-models/tree/master/toxicity)
+- The core ideas behind [Distributed Object Protocol](https://distributedobjectprotocol.org)
+- [Cypress](https://www.cypress.io/)
 
 ## Additional considerations
 
@@ -142,3 +149,7 @@ Short term, mobile users can still open the app in their mobile browser. A respo
 Long term, newer technologies like [flutter](https://flutter.dev/) and [ReactNative](https://facebook.github.io/react-native/) should be considered to make it easier for smaller teams to maintain cross-platform experiences now and in the future.
 
 Additional research is necessary before further consideration.
+
+## Dev notes
+
+- It may be nice to define the redux store once, and share code between client and server. This would simplify the system and make it easier to reason about.

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './MessageList.css';
 
 class MessageList extends React.Component {
@@ -22,8 +23,9 @@ class MessageList extends React.Component {
     return (
       <ol className="message-list"
         ref={this.listRef}>
-        {isEmpty && this.getEmptyView()}
-        {messages.map(this.renderMessageItem.bind(this))}
+        {isEmpty ?
+          this.getEmptyView() :
+          this.renderMessagesByAuthor()}
       </ol>
     );
   }
@@ -32,6 +34,34 @@ class MessageList extends React.Component {
     return (
       <li className="message-list__item">
         <i>Nothing seems to be here</i>
+      </li>
+    );
+  }
+
+  renderMessagesByAuthor() {
+    const { messages } = this.props;
+
+    let lastMessage;
+    return messages.reduce((listItems, message) => {
+      if (!lastMessage || lastMessage.userId !== message.userId) {
+        const userByLine = this.getUserByLine(message);
+        listItems.push(userByLine);
+      }
+
+      const formattedMessage = this.renderMessageItem(message);
+      listItems.push(formattedMessage);
+      lastMessage = message;
+
+      return listItems;
+    }, []);
+  }
+
+  getUserByLine(message) {
+    const user = this.props.users.byId[message.userId];
+
+    return (
+      <li className="message-list__author">
+        {user.username} said..
       </li>
     );
   }
@@ -53,4 +83,8 @@ class MessageList extends React.Component {
   }
 }
 
-export default MessageList;
+const mapStateToProps = ({ entities }) => ({
+  users: entities.users
+});
+
+export default connect(mapStateToProps)(MessageList);

@@ -8,7 +8,7 @@ import './SelectedThread.css';
 
 class SelectedThread extends React.Component {
   render() {
-    const { channel, userId } = this.props;
+    const { channel } = this.props;
 
     return (
       <div className="selected-thread">
@@ -26,8 +26,7 @@ class SelectedThread extends React.Component {
 
         <div className="selected-thread__create-message">
           <CreateMessage
-            threadId={channel.thread.uid}
-            userId={userId} />
+            threadId={channel.thread.uid} />
         </div>
       </div>
     );
@@ -39,7 +38,6 @@ class SelectedThread extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  userId: state.auth.user.uid,
   channel: getSelectedThread(state)
 })
 

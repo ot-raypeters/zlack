@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.17.1",
     "faker": "^4.1.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -16,6 +17,7 @@
     "socket.io": "^2.2.0"
   },
   "scripts": {
+    "server": "nodemon --inspect ./server/start.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -35,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "proxy": "http://localhost:9001",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

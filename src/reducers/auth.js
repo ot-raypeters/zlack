@@ -5,8 +5,10 @@ import {
 } from '../actions/user';
 
 const INITIAL_STATE = {
+  authenticated: false,
   connected: false,
-  user: null
+  username: null,
+  userId: null
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -14,22 +16,21 @@ export default function (state = INITIAL_STATE, action) {
     case USER_CONNECTED:
       return {
         ...state,
-        user: {
-          username: 'Anonymous'
-        }
+        userId: action.userId,
+        connected: true
       };
 
     case USER_LOGGED_IN:
       return {
         ...state,
-        user: action.user,
+        username: action.username,
         authenticated: true
       };
 
     case USER_LOGGED_OUT:
       return {
         ...state,
-        user: null,
+        username: null,
         authenticated: false
       };
 

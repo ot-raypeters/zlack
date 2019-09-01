@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ThreadParticipants from '../ThreadParticipants/ThreadParticipants';
 import { selectThread } from '../../actions/threads';
 import './ThreadList.css';
 
 class ThreadList extends React.Component {
   render() {
     return (
-      <ul className="thread-list">
-        <li className="thread-list__section">Channels</li>
-        {this.props.threads.all
+      <ul className="thread-list noselect">
+        <li className="thread-list__section">Threads</li>
+        {this.props.threads && this.props.threads.all
           .map(this.renderThreadListItem.bind(this))}
       </ul>
     );
@@ -23,14 +24,15 @@ class ThreadList extends React.Component {
         className={classes}
         onClick={() => this.props.selectThread(thread.uid)}>
         {thread.name}
+        {isActive && <ThreadParticipants />}
       </li>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  selectedThreadId: state.threads.selectedThreadId,
-  threads: state.entities.threads
+  threads: state.entities.threads,
+  selectedThreadId: state.threads.selectedThreadId
 });
 
 const mapDispatchToProps = { selectThread };

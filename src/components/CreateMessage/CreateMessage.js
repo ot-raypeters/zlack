@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createMessage, startedTyping, stoppedTyping } from '../../actions/messages';
+import { startedTyping, stoppedTyping } from '../../actions/threads';
+import { createMessage } from '../../actions/messages';
 import Textarea from 'react-textarea-autosize';
 import './CreateMessage.css';
 
@@ -19,8 +20,8 @@ class CreateMessage extends React.Component {
   }
 
   emitActivity() {
-    const { userId, threadId } = this.props;
-    this.props.startedTyping(userId, threadId);
+    const { threadId } = this.props;
+    this.props.startedTyping(threadId);
   }
 
   createOnEnter(ev) {
@@ -30,11 +31,24 @@ class CreateMessage extends React.Component {
       ev.preventDefault();
       return false;
     }
+
+    if (ev.key === 'Escape') {
+      this.fireOnEscapeHandler();
+    }
   }
 
   createMessage(body) {
-    const { userId, threadId } = this.props;
-    return this.props.createMessage(userId, threadId, body);
+    const { createMessage, threadId } = this.props;
+    if (typeof createMessage === 'function') {
+      return createMessage(threadId, body);
+    }
+  }
+
+  fireOnEscapeHandler() {
+    const { onEscape } = this.props;
+    if (typeof onEscape === 'function') {
+      onEscape();
+    }
   }
 }
 

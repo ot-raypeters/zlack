@@ -10,7 +10,8 @@ class UserLogin extends React.Component {
   }
 
   login(username) {
-    return this.props.login({ username });
+    window.localStorage.setItem('username', username);
+    return this.props.login(username);
   }
 
   loginOnEnter(ev) {
@@ -22,6 +23,8 @@ class UserLogin extends React.Component {
   }
 
   render() {
+    const defaultValue = window.localStorage.getItem('username') || 'Anonymous';
+
     return (
       <div className="user-login fullscreen">
         <div className="user-login__form">
@@ -35,7 +38,7 @@ class UserLogin extends React.Component {
             autoFocus={true}
             className="input"
             id="username-input"
-            defaultValue="Anonymous"
+            defaultValue={defaultValue}
             onKeyUp={(ev) => this.loginOnEnter(ev)} />
         </div>
       </div>
