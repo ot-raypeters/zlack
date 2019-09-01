@@ -1,4 +1,5 @@
 .thread-participants {
+  cursor: default;
   list-style: none;
   padding-bottom: 1em;
 }

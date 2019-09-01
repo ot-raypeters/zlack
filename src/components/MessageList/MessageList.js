@@ -32,7 +32,7 @@ class MessageList extends React.Component {
 
   getEmptyView() {
     return (
-      <li className="message-list__item">
+      <li key="empty" className="message-list__item">
         <i>Nothing seems to be here</i>
       </li>
     );
@@ -61,7 +61,9 @@ class MessageList extends React.Component {
     const user = users.byId[message.userId];
 
     return (
-      <li className="message-list__author">
+      <li
+        key={user.uid}
+        className="message-list__author">
         {user.username} said..
       </li>
     );
