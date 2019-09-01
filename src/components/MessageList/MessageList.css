@@ -14,6 +14,7 @@
 
 .message-list__item {
   cursor: pointer;
+  position: relative;
   border-radius: 4px;
   padding: 0.25em 1em;
   margin-bottom: 0.25em;
@@ -32,4 +33,10 @@
 
 .message-list__item + .message-list__author {
   margin-top: 1em;
+}
+
+.message-list__item .reply-count {
+  right: 1em;
+  opacity: 0.25;
+  position: absolute;
 }

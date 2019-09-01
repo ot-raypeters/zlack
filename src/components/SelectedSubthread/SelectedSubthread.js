@@ -30,7 +30,8 @@ class SelectedSubthread extends React.Component {
 
         <div className="selected-thread__messages">
           <MessageList
-            messages={channel.messages} />
+            messages={channel.messages}
+            showReplyCount={false} />
         </div>
 
         <div className="selected-thread__create-message">

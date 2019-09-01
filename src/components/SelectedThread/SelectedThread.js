@@ -20,6 +20,7 @@ class SelectedThread extends React.Component {
 
         <div className="selected-thread__messages">
           <MessageList
+            showReplyCount={true}
             messages={channel.messages}
             onSelect={this.selectSubthread.bind(this)} />
         </div>

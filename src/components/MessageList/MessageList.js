@@ -57,7 +57,8 @@ class MessageList extends React.Component {
   }
 
   getUserByLine(message) {
-    const user = this.props.users.byId[message.userId];
+    const { users } = this.props;
+    const user = users.byId[message.userId];
 
     return (
       <li className="message-list__author">
@@ -67,11 +68,21 @@ class MessageList extends React.Component {
   }
 
   renderMessageItem(message) {
+    const { allMessages, showReplyCount } = this.props;
+
+    const replies = allMessages.filter(m => m.threadId === message.uid);
+    const hasReplies = showReplyCount && replies.length > 0;
+
     return (
       <li key={message.uid}
         className="message-list__item"
         onClick={this.onSelect.bind(this, message)}>
         {message.body}
+        {hasReplies &&
+          <span className="reply-count">
+            {replies.length === 1 ? '1 reply' : `${replies.length} replies`}
+          </span>
+        }
       </li>
     );
   }
@@ -84,6 +95,7 @@ class MessageList extends React.Component {
 }
 
 const mapStateToProps = ({ entities }) => ({
+  allMessages: entities.messages.all,
   users: entities.users
 });
 
