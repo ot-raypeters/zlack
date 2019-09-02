@@ -14,10 +14,6 @@
   transition: all 0.25s ease-in-out;
 }
 
-.chat__thread-list .thread-list {
-  padding-top: 2em;
-}
-
 .chat__selected-thread {
   flex: 1 0;
   padding-left: 240px;

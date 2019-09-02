@@ -3,6 +3,9 @@ const StorageManager = require('./services/StorageManager');
 const ChatActivity = require('./services/ChatActivity').create();
 
 module.exports = (io) => {
+  const getThreadName = threadId =>
+    `thread-${threadId}`;
+
   const SOCKET_API = {
     disconnecting: (socket) => {
       if (!socket.threads) return;
@@ -11,10 +14,8 @@ module.exports = (io) => {
       const userId = socket.id;
       ChatActivity.clearUserActivity(userId);
 
-      socket.threads.forEach((threadId) => {
-        socket.to(`thread-${threadId}`)
-          .emit('zlack:thread:leave', threadId, userId);
-      });
+      socket.threads.forEach(threadId =>
+        io.emit('zlack:thread:leave', threadId, userId));
     },
 
     'zlack:login': (socket, username, done) => {
@@ -45,15 +46,10 @@ module.exports = (io) => {
       socket.threads.push(threadId);
 
       // @note broadcast to other clients
-      const threadName = `thread-${threadId}`;
+      const threadName = getThreadName(threadId);
 
-      socket.join(threadName, () => {
-        socket.emit('zlack:thread:join', threadId, socket.user);
-
-        socket
-          .to(threadName)
-          .emit('zlack:thread:join', threadId, socket.user);
-      });
+      socket.join(threadName, () =>
+        io.emit('zlack:thread:join', threadId, socket.user));
 
       // @note return thread messages
       StorageManager.getMessages(threadId)
@@ -68,12 +64,9 @@ module.exports = (io) => {
       ChatActivity.leaveThread(userId, threadId);
 
       // @note broadcast to other clients
-      socket.emit('zlack:thread:leave', threadId, userId);
+      io.emit('zlack:thread:leave', threadId, userId);
 
-      const threadName = `thread-${threadId}`;
-      socket.to(threadName)
-        .emit('zlack:thread:leave', threadId, userId);
-
+      const threadName = getThreadName(threadId);
       socket.leave(threadName);
     },
 
@@ -81,24 +74,18 @@ module.exports = (io) => {
       const userId = socket.id;
 
       // @note create message
-      const threadName = `thread-${message.threadId}`;
+      const threadName = getThreadName(message.threadId);
       StorageManager.createMessage({ ...message, userId })
         .then((message) => {
           // @note broadcast to other clients
-          socket.to(threadName)
-            .emit('zlack:thread:message', message);
+          io.emit('zlack:thread:message', message);
 
           done({ message });
         });
     },
 
-    'zlack:thread:status': (socket, threadId, userId, status) => {
-      socket.emit('zlack:thread:status', threadId, userId, status);
-
-      const threadName = `thread-${threadId}`;
-      socket.to(threadName)
-        .emit('zlack:thread:status', threadId, userId, status);
-    }
+    'zlack:thread:status': (socket, threadId, userId, status) =>
+      io.emit('zlack:thread:status', threadId, userId, status)
   };
 
   io.use((socket, next) => {

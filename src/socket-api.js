@@ -15,9 +15,7 @@ import { syncActivity } from './actions/activity';
 import store from './store';
 
 export const API = {
-  'connect': (socket) => {
-    store.dispatch(connect(socket.id));
-  },
+  connect: socket => store.dispatch(connect(socket.id)),
 
   [USER_LOGGED_IN]: (socket, state, action) => {
     socket.emit('zlack:login', action.username, (response) => {

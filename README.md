@@ -4,13 +4,23 @@ This application requires the [node](https://nodejs.org/en/) version `10.16 LTS`
 
 Newer node versions are untested but may still work.
 
-## Installation
+## Quick start
 
-In the project directory, run `yarn` to install dependencies from npm.
+Steps to run the client and server:
+
+1. Install dependencies with `yarn`
+2. Start backend with `yarn server`
+3. Start frontend with `yarn start`
+4. Visit [localhost:3000](http://localhost:3000)
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn server`
+
+Runs the backend for the app.<br>
+The server will restart if you make edits.
 
 ### `yarn start`
 
@@ -55,16 +65,19 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [ ] Users can see suppressed messages
 - [ ] Browser client can detect and suppress toxic messages
 - [ ] Depressed bots and Angry bots should blurt toxic messages sometimes (lol)
+- [ ] Users should see unread messages
 
 ### Future
 
 - [ ] Add e2e smoke tests with cypress for "critical" user flows
 - [ ] User should be able to add and remove channels
+- [ ] Responsive experience for mobile devices
 - [ ] User should be able to react to messages
 - [ ] Build and deploy with electron
 - [ ] Fully support offline mode
 - [ ] Optimize lighthouse score
 - [x] Github security alerts
+- [ ] Emoji support
 
 ## Production-ready checklist
 
@@ -153,3 +166,5 @@ Additional research is necessary before further consideration.
 ## Dev notes
 
 - It may be nice to define the redux store once, and share code between client and server. This would simplify the system and make it easier to reason about.
+
+- Consider using the same event names across the frontend and backend.

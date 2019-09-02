@@ -8,6 +8,7 @@ class ThreadList extends React.Component {
   render() {
     return (
       <ul className="thread-list noselect">
+        <li className="thread-list__title">Zlack</li>
         <li className="thread-list__section">Threads</li>
         {this.props.threads && this.props.threads.all
           .map(this.renderThreadListItem.bind(this))}
