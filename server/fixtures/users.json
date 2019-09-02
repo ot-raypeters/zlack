@@ -4,11 +4,11 @@
     "username": "Ray Peters"
   },
   {
-    "uid": "zen-of-python",
+    "uid": "zop-bot",
     "username": "Zen of Python Bot"
   },
   {
-    "uid": "fun",
-    "name": "Just for fun"
+    "uid": "toxic-bot",
+    "username": "A bot with a toxic communication-style"
   }
 ]

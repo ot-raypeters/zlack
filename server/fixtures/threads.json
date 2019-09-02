@@ -10,5 +10,13 @@
   {
     "uid": "fun",
     "name": "Just for fun"
+  },
+  {
+    "uid": "features",
+    "name": "List of features"
+  },
+  {
+    "uid": "troubleshooting",
+    "name": "Trouble shooting"
   }
 ]

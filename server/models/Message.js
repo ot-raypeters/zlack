@@ -1,4 +1,4 @@
-const MESSAGES = [];
+const MESSAGES = require('../fixtures/messages.json');
 
 class Message {
   constructor(props) {

@@ -1,4 +1,4 @@
-const USERS = [];
+const USERS = require('../fixtures/users.json');
 
 class User {
   constructor(props) {
