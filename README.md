@@ -57,18 +57,19 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - [x] User can reply to a message
 - [x] User can see when other users are typing
-- [ ] Developers should be able to create bot integrations quickly and easily
-- [ ] Users should be serenaded by quotes from the Zen of Python
+- [x] Developers should be able to create bot integrations quickly and easily
+- [x] Users should be serenaded by quotes from the Zen of Python
 
 ### Super fancy chat app
 
 - [ ] Users can see suppressed messages
 - [ ] Browser client can detect and suppress toxic messages
 - [ ] Depressed bots and Angry bots should blurt toxic messages sometimes (lol)
-- [ ] Users should see unread messages
+- [ ] Users can read and unread messages
 
 ### Future
 
+- [ ] Keyboard shortcuts
 - [ ] Add e2e smoke tests with cypress for "critical" user flows
 - [ ] User should be able to add and remove channels
 - [ ] Responsive experience for mobile devices

@@ -6,6 +6,7 @@ export const DESELECT_SUBTHREAD = 'DESELECT_SUBTHREAD';
 export function selectThread(threadId) {
   return (dispatch, getState) => {
     const { selectedThreadId } = getState().threads;
+
     if (selectedThreadId) {
       if (threadId === selectedThreadId) {
         return;

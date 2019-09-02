@@ -62,7 +62,7 @@ class MessageList extends React.Component {
 
     return (
       <li
-        key={user.uid}
+        key={`${user.uid}-${message.uid}`}
         className="message-list__author">
         {user.username} said..
       </li>

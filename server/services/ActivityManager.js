@@ -1,10 +1,10 @@
-class ChatActivity {
+class ActivityManager {
   constructor() {
     this.threads = {};
   }
 
   static create() {
-    return new ChatActivity();
+    return new ActivityManager();
   }
 
   getThreadActivity() {
@@ -16,11 +16,11 @@ class ChatActivity {
     return this.threads[threadId]
   }
 
-  joinThread(userId, threadId) {
+  joinThread(threadId, userId) {
     return this.updateUserActivity(userId, threadId);
   }
 
-  leaveThread(userId, threadId) {
+  leaveThread(threadId, userId) {
     const thread = this.threads[threadId];
     if (thread) {
       delete thread[userId];
@@ -41,8 +41,8 @@ class ChatActivity {
 
   clearUserActivity(userId) {
     return Object.keys(this.threads)
-      .forEach(threadId => this.leaveThread(userId, threadId));
+      .forEach(threadId => this.leaveThread(threadId, userId));
   }
 }
 
-module.exports = ChatActivity;
+module.exports = ActivityManager.create();

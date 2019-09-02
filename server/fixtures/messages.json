@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "userId": "ray",
+    "body": "Welcome to Zlack!",
+    "threadId": "general",
+    "timezoneOffset": 420,
+    "created": 1567422706280,
+    "uid": "1"
+  },
+  {
+    "userId": "ray",
+    "body": "Click on this message to see replies",
+    "threadId": "general",
+    "timezoneOffset": 420,
+    "created": 1567422706281,
+    "uid": "2"
+  },
+  {
+    "userId": "ray",
+    "body": "Subthreads make it quick and easy to reply async",
+    "threadId": "2",
+    "timezoneOffset": 420,
+    "created": 1567422706282,
+    "uid": "3"
+  },
+  {
+    "userId": "ray",
+    "body": "Type a message and hit 'Enter' to send it!",
+    "threadId": "2",
+    "timezoneOffset": 420,
+    "created": 1567422706283,
+    "uid": "4"
+  }
+]

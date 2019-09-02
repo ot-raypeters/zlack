@@ -15,6 +15,10 @@ class StorageManager {
     return Message.byThreadId(threadId);
   }
 
+  static getThreadAndSubthreadMessages(threadId) {
+    return Message.byThreadIdWithSubthreads(threadId);
+  }
+
   static createUser(user) {
     const { uid, username } = user;
     const newUser = User.create({ uid, username });
