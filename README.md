@@ -62,13 +62,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Super fancy chat app
 
-- [ ] Users can see suppressed messages
-- [ ] Browser client can detect and suppress toxic messages
-- [ ] Mischievious bots should blurt out toxic messages (lol)
-- [ ] Users can read and unread messages
+- [x] Users can see suppressed messages
+- [x] Browser client can detect and suppress toxic messages
+~- [ ] Mischievious bots should blurt out toxic messages (lol)~
 
 ### Future
 
+- [ ] Users can read and unread messages
 - [ ] Add e2e smoke tests with cypress for "critical" user flows
 - [ ] User should be able to add and remove channels
 - [ ] Responsive experience for mobile devices
