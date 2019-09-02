@@ -13,37 +13,10 @@ Steps to run the client and server:
 3. Start frontend with `yarn start`
 4. Visit [localhost:3000](http://localhost:3000)
 
-## Available Scripts
+### Running tests
 
-In the project directory, you can run:
-
-### `yarn server`
-
-Runs the backend for the app.<br>
-The server will restart if you make edits.
-
-### `yarn start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run rests with `yarn test`
+Run production build with `yarn build`
 
 ## Feature roadmap
 
@@ -64,7 +37,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - [x] Users can see suppressed messages
 - [x] Browser client can detect and suppress toxic messages
-~- [ ] Mischievious bots should blurt out toxic messages (lol)~
+- [ ] Mischievious bots should blurt out toxic messages (lol)
 
 ### Future
 
