@@ -64,12 +64,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - [ ] Users can see suppressed messages
 - [ ] Browser client can detect and suppress toxic messages
-- [ ] Depressed bots and Angry bots should blurt toxic messages sometimes (lol)
+- [ ] Mischievious bots should blurt out toxic messages (lol)
 - [ ] Users can read and unread messages
 
 ### Future
 
-- [ ] Keyboard shortcuts
 - [ ] Add e2e smoke tests with cypress for "critical" user flows
 - [ ] User should be able to add and remove channels
 - [ ] Responsive experience for mobile devices
@@ -78,6 +77,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [ ] Fully support offline mode
 - [ ] Optimize lighthouse score
 - [x] Github security alerts
+- [ ] Keyboard shortcuts
 - [ ] Emoji support
 
 ## Production-ready checklist
