@@ -6,7 +6,7 @@ Newer node versions are untested but may still work.
 
 ## Quick start
 
-Steps to run the client and server:
+### Local development
 
 1. Install dependencies with `yarn`
 2. Start backend with `yarn server`
@@ -16,24 +16,25 @@ Steps to run the client and server:
 ### Running tests
 
 Run rests with `yarn test`
+
 Run production build with `yarn build`
 
 ## Feature roadmap
 
-### Simple chat app
+### Milestone 1: Simple chat app
 
 - [x] User can login and view a list of channels
 - [x] User can join a channel and see list of users in the channel
 - [x] User can send a message to the channel
 
-### Fancy chat app
+### Milestone 2: Fancy chat app
 
 - [x] User can reply to a message
 - [x] User can see when other users are typing
 - [x] Developers should be able to create bot integrations quickly and easily
 - [x] Users should be serenaded by quotes from the Zen of Python
 
-### Super fancy chat app
+### Milestone 3: Super fancy chat app
 
 - [x] Users can see suppressed messages
 - [x] Browser client can detect and suppress toxic messages
