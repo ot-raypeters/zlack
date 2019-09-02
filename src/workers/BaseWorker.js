@@ -10,31 +10,16 @@ class BaseWorker {
 
   request(type, payload) {
     const deferred = Deferred.createAndAddTimings();
-
     const { uid } = deferred;
-    this.requests[uid] = deferred;
-    const req = () => this.worker.postMessage({ uid, type, payload });
 
-    if (!this.isReady) {
-      this.readyCallbacks.push(req);
-    } else {
-      req();
-    }
+    this.requests[uid] = deferred;
+    this.worker.postMessage({ uid, type, payload });
 
     return deferred.promise;
   }
 
-  runReadyCallbacks() {
-    this.isReady = true;
-    this.readyCallbacks.forEach(cb => cb());
-  }
-
   onmessage(ev) {
-    const { uid, payload, status } = ev.data;
-
-    if (status === 'loaded') {
-      this.runReadyCallbacks();
-    }
+    const { uid, payload } = ev.data;
 
     if (this.requests[uid]) {
       this.requests[uid].resolve(payload);

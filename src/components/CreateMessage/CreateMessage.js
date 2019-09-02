@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startedTyping, stoppedTyping } from '../../actions/threads';
-import { createMessage } from '../../actions/messages';
+import { createAndVerifyMessage } from '../../actions/messages';
 import Textarea from 'react-textarea-autosize';
 import './CreateMessage.css';
 
@@ -52,5 +52,6 @@ class CreateMessage extends React.Component {
   }
 }
 
+const createMessage = createAndVerifyMessage;
 const mapDispatchToProps = { createMessage, startedTyping, stoppedTyping };
 export default connect(null, mapDispatchToProps)(CreateMessage);

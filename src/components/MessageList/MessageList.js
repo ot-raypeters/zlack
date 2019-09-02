@@ -75,21 +75,36 @@ class MessageList extends React.Component {
     const replies = allMessages.filter(m => m.threadId === message.uid);
     const hasReplies = showReplyCount && replies.length > 0;
 
+    const hasWarnings = message.warnings && message.warnings.length;
+    const warningClasses = hasWarnings ? message.warnings.join(' ') : '';
+    const clickHandler = this.onSelect.bind(this, message);
+
     return (
       <li key={message.uid}
-        className="message-list__item"
-        onClick={this.onSelect.bind(this, message)}>
+        className={`message-list__item ${warningClasses}`}
+        onClick={clickHandler}>
         {message.body}
+
         {hasReplies &&
           <span className="reply-count">
             {replies.length === 1 ? '1 reply' : `${replies.length} replies`}
           </span>
+        }
+
+        {hasWarnings &&
+          <div className="message-list__item__warnings">
+            Violations: {message.warnings.join(', ')}
+          </div>
         }
       </li>
     );
   }
 
   onSelect(message) {
+    const hasWarnings = message.warnings && message.warnings.length;
+    // @note users cannot reply to messages with warnings
+    if (hasWarnings) return;
+
     if (typeof this.props.onSelect === 'function') {
       return this.props.onSelect(message);
     }

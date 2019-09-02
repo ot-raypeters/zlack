@@ -30,5 +30,30 @@
     "timezoneOffset": 420,
     "created": 1567422706283,
     "uid": "4"
+  },
+  {
+    "userId": "ray",
+    "body": "This app features ~real-time toxic comment detection.",
+    "threadId": "toxicity",
+    "timezoneOffset": 420,
+    "created": 1567422706284,
+    "uid": "5"
+  },
+  {
+    "userId": "ray",
+    "body": "Try saying an insult, thread, or obscenity...",
+    "threadId": "toxicity",
+    "timezoneOffset": 420,
+    "created": 1567422706285,
+    "uid": "6"
+  },
+  {
+    "userId": "ray",
+    "body": "Toxic messages show a warning state and cannot be replied to",
+    "threadId": "toxicity",
+    "warnings": ["toxicity"],
+    "timezoneOffset": 420,
+    "created": 1567422706285,
+    "uid": "7"
   }
 ]

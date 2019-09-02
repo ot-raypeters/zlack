@@ -27,6 +27,10 @@ class App {
   updateStatus(threadId, userId, status) {
     this.io.emit('zlack:thread:status', threadId, userId, status);
   }
+
+  broadcastMessageWarning(threadId, messageId, warnings) {
+    this.io.emit('zlack:message:warning', threadId, messageId, warnings);
+  }
 }
 
 module.exports = (io) => {

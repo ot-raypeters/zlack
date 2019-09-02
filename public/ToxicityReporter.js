@@ -11,8 +11,6 @@ self.importScripts(
 const THRESHOLD = 0.9;
 const ASYNC_TOXICITY_MODEL = toxicity.load(THRESHOLD);
 
-self.postMessage({ status: 'loaded' });
-
 self.onmessage = ev =>
   new ToxicityReporter(ev.data.uid, ev.data.payload);
 
@@ -43,12 +41,17 @@ class ToxicityReporter {
   }
 
   getWarnings(uid, message, predictions) {
-    const warnings = predictions.reduce((map, prediction) => {
-      map[prediction.label] = prediction.results.some(({ match }) => match);
-      return map;
-    }, {});
+    const warnings = predictions.reduce((list, prediction) => {
+      const hasMatch = prediction.results.some(({ match }) => match);
 
-    return { message, warnings };
+      if (hasMatch) {
+        list.push(prediction.label);
+      }
+
+      return list;
+    }, []);
+
+    return { ...message, warnings };
   }
 
   report(uid, payload) {

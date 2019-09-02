@@ -25,6 +25,26 @@
   background-color: #fafafa;
 }
 
+.message-list__item.insult,
+.message-list__item.threat,
+.message-list__item.obscene,
+.message-list__item.toxicity,
+.message-list__item.identity_attack,
+.message-list__item.severe_toxicity,
+.message-list__item.sexual_explicit {
+  background-color: #e74545;
+  color: #fff;
+}
+
+.message-list__item__warnings {
+  width: 100%;
+  color: #fff;
+  opacity: 0.75;
+  margin-left: 1em;
+  font-size: 0.75em;
+  text-align: center;
+}
+
 .message-list__author {
   opacity: 0.25;
   font-size: 16px;

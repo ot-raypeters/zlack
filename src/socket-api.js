@@ -8,9 +8,9 @@ import {
   USER_STOPPED_TYPING
 } from './actions/threads';
 
+import { CREATE_MESSAGE, TOXIC_MESSAGE_DETECTED } from './actions/messages';
 import { connect, USER_LOGGED_IN } from './actions/user';
 import { upsertEntities } from './actions/entities';
-import { CREATE_MESSAGE } from './actions/messages';
 import { syncActivity } from './actions/activity';
 import store from './store';
 
@@ -55,6 +55,7 @@ export const API = {
 
   [CREATE_MESSAGE]: (socket, state, action) => {
     const { message } = action;
+
     socket.emit('zlack:thread:message', message, (response) => {
       const action = upsertEntities('messages', [response.message]);
       store.dispatch(action);
@@ -71,5 +72,11 @@ export const API = {
     const { threadId } = action;
     const { userId } = state.auth;
     socket.emit('zlack:thread:status', threadId, userId, 'online');
+  },
+
+  [TOXIC_MESSAGE_DETECTED]: (socket, state, action) => {
+    const { message, warnings } = action;
+    const { uid: messageId, threadId } = message;
+    socket.emit('zlack:message:warning', threadId, messageId, warnings);
   }
 };

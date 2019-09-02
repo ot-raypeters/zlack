@@ -1,6 +1,7 @@
 const Utils = require('../utils');
 const MESSAGES = require('../fixtures/messages.json');
 const BY_THREAD_ID = {};
+const BY_ID = {};
 
 class Message {
   constructor(props) {
@@ -10,14 +11,18 @@ class Message {
       created: props.created || Date.now(),
       timezoneOffset: props.timezoneOffset || new Date().getTimezoneOffset()
     });
-
-    MESSAGES.push(this);
   }
 
   static create(props) {
     const message = new Message(props);
     Message.indexByThreadId(message);
+    Message.indexById(message);
     return message;
+  }
+
+  static indexById(message) {
+    MESSAGES.push(message);
+    BY_ID[message.uid] = message;
   }
 
   static indexByThreadId(message) {
@@ -27,6 +32,14 @@ class Message {
 
   static getAll() {
     return Promise.resolve([...MESSAGES]);
+  }
+
+  static upsert(messageId, partial) {
+    const message = BY_ID[messageId];
+
+    if (message) {
+      Object.assign(message, partial);
+    }
   }
 
   static byThreadId(threadId) {
@@ -46,5 +59,8 @@ class Message {
   }
 }
 
-MESSAGES.forEach(Message.indexByThreadId);
+MESSAGES.forEach((message) => {
+  Message.indexByThreadId(message);
+  Message.indexById(message)
+});
 module.exports = Message;

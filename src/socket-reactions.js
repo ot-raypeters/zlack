@@ -31,5 +31,16 @@ export const REACTIONS = {
   'zlack:thread:status': (socket, threadId, userId, status) => {
     const action = updateThreadStatus(threadId, userId, status);
     store.dispatch(action);
+  },
+
+  'zlack:message:warning': (socket, threadId, messageId, warnings) => {
+    const { messages } = store.getState().entities;
+    const message = messages.byId[messageId];
+
+    if (!message) return;
+
+    const messageWithWarnings = { ...message, warnings };
+    const action = upsertEntities('messages', [messageWithWarnings]);
+    store.dispatch(action);
   }
 };

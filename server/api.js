@@ -50,6 +50,11 @@ module.exports = {
   'zlack:thread:status': (app, socket, threadId, userId, status) =>
     app.updateStatus(threadId, userId, status),
 
+  'zlack:message:warning': (app, socket, threadId, messageId, warnings) => {
+    StorageManager.upsertMessageWarnings(messageId, warnings);
+    app.broadcastMessageWarning(threadId, messageId, warnings);
+  },
+
   disconnecting: (app, socket) => {
     if (!socket.user) return;
     if (!socket.threads) return;

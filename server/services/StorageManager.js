@@ -36,6 +36,11 @@ class StorageManager {
     const newMessage = Message.create({ uid, userId, threadId, body, created, timezoneOffset });
     return Promise.resolve(newMessage);
   }
+
+  static upsertMessageWarnings(messageId, warnings) {
+    const req = Message.upsert(messageId, { warnings });
+    return Promise.resolve(req);;
+  }
 }
 
 module.exports = StorageManager;

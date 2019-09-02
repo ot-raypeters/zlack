@@ -21,7 +21,7 @@ class Deferred {
     deferred.promise.startTime = now;
     deferred.promise.then(() => {
       const duration = performance.now() - now;
-      console.log(`Web worker completed request in ${duration}ms`);
+      console.info(`Worker completed request in ${duration}ms`);
     });
 
     return deferred;

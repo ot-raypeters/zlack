@@ -4,12 +4,8 @@
     "name": "General"
   },
   {
-    "uid": "fun",
-    "name": "Just for fun"
-  },
-  {
-    "uid": "features",
-    "name": "List of features"
+    "uid": "toxicity",
+    "name": "Toxicity reporter"
   },
   {
     "uid": "troubleshooting",
