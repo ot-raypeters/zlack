@@ -9,7 +9,7 @@ class ZenOfPythonBot extends BaseBot {
     this.interval = props.interval || 10000;
 
     this.serenade = this.serenade.bind(this);
-    this.scheduleNextQuote = this.scheduleNextQuote.bind(this);
+    this.scheduleNextSerenade = this.scheduleNextSerenade.bind(this);
   }
 
   static create(app, user, props = {}) {
@@ -27,12 +27,12 @@ class ZenOfPythonBot extends BaseBot {
     const nextQuote = this.getNextQuote();
 
     this.simulateUserMessage(nextQuote)
-      .then(this.scheduleNextQuote);
+      .then(this.scheduleNextSerenade);
 
     return this;
   }
 
-  scheduleNextQuote() {
+  scheduleNextSerenade() {
     clearTimeout(this.timeoutId);
     this.timeoutId = setTimeout(this.serenade, this.interval);
     return this;

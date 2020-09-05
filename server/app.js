@@ -44,5 +44,5 @@ module.exports = (io) => {
 
   BotManager.configure(app);
 
-  return new App(io);
+  return app;
 };
